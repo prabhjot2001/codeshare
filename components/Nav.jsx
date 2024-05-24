@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import { LogIn } from 'lucide-react'
+
 
 const Nav = () => {
     return (
@@ -14,7 +16,7 @@ const Nav = () => {
                 <Link className='hover:underline ' href={'/'}>Features</Link>
                 <Link className='hover:underline' href={'/'}>About us</Link>
                 <Link className='hover:underline' href={'/Auth/create-account'}>
-                    <button className='primary-btn' >Create Account</button>
+                    <button className='primary-btn flex gap-1' >Login <LogIn color='white' /> </button>
                 </Link>
 
             </span>
