@@ -69,7 +69,7 @@ const Page = () => {
                 <p
                     className={styles.para}>
                     Don't have an invitation link?
-                    <Link className='hover:underline' href={"/Room/create"}>
+                    <Link className='hover:underline text-black font-bold' href={"/Room/create"}>
                         Create new room
                     </Link>
                 </p>

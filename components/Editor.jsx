@@ -12,7 +12,6 @@ import 'codemirror/addon/hint/show-hint';
 import 'codemirror/addon/hint/show-hint.css';
 import 'codemirror/addon/hint/javascript-hint';
 
-
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/python/python';
 import 'codemirror/mode/clike/clike'; // For Java and C++
@@ -77,7 +76,6 @@ const Editor = () => {
         setFontSize((prevSize) => Math.max(10, prevSize - 2));
     };
 
-    // this is my backend logic
     const runCode = async () => {
         const code = editorInstance.current.getValue();
         console.log(language, code)
@@ -94,7 +92,7 @@ const Editor = () => {
 
     return (
         <div className="flex flex-col h-screen">
-            <div className="flex gap-4 mb-4 p-4 text-sm">
+            <div className="flex flex-wrap gap-2 mb-4 p-2 text-sm">
                 <select
                     value={language}
                     onChange={(e) => setLanguage(e.target.value)}
@@ -120,10 +118,8 @@ const Editor = () => {
                     <option value="monokai">Monokai</option>
                     <option value="icecoder">Icecoder</option>
                     <option value="isotope">Isotope</option>
-                    <option value="liquibyte">Liqui Byte</option>
-
+                    <option value="liquibyte">Liquibyte</option>
                 </select>
-
 
                 <button onClick={increaseFontSize} className="p-2 border rounded"><ZoomIn color='gray' size={20} /></button>
                 <button onClick={decreaseFontSize} className="p-2 border rounded"><ZoomOut color='gray' size={20} /></button>
@@ -132,10 +128,26 @@ const Editor = () => {
 
             <textarea ref={editorRef} style={{ display: 'none' }} />
 
-            <div className="output p-4 border-t border-gray-200 ">
+            <div className="output p-4 border-t border-gray-200 overflow-auto">
                 <h2 className="font-semibold">Output:</h2>
                 <pre className="whitespace-pre-wrap text-green-800 text-lg">{output}</pre>
             </div>
+
+            <style jsx>{`
+                @media (max-width: 768px) {
+                    .editor-border {
+                        height: 50vh !important;
+                    }
+                    .output {
+                        height: 50vh;
+                    }
+                }
+                @media (min-width: 768px) {
+                    .editor-border {
+                        height: calc(100vh - 10rem) !important;
+                    }
+                }
+            `}</style>
         </div>
     );
 };

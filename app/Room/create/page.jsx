@@ -88,7 +88,7 @@ const Page = () => {
                     <button type='submit' className='secondary-btn w-full'>Create room</button>
                 </form>
                 <p className={styles.para}>Already have an invitation link?
-                    <NextLink className='hover:underline' href={"/Room/join"}>
+                    <NextLink className='hover:underline text-black font-bold' href={"/Room/join"}>
                         Join room
                     </NextLink>
                 </p>
