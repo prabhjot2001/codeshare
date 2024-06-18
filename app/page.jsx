@@ -1,44 +1,49 @@
 import Cookieconsent from '@/components/CookieConsent'
 import Nav from '@/components/Nav'
-import React from 'react'
 import Link from 'next/link'
 import OfferBanner from '@/components/OfferBanner'
 import Footer from '@/components/Footer'
+import Hero from '@/components/Hero'
+import Testimonial from '@/components/Testimonial'
+import Stats from '@/components/Stats'
+import Features from '@/components/Features'
+import Pricing from '@/components/Pricing'
 
 const page = () => {
     return (
         <>
             <OfferBanner />
-
-            <section className='px-10 mb-20'>
-
-                <Nav />
-                <section className='flex justify-between items-center'>
-                    <div className='w-[50%] flex flex-col gap-10'>
-                        <span className='flex flex-col gap-4'>
-                            <h1 className='font-semibold text-5xl'>Share Code in Real-time with Developers</h1>
-                            <h2 className='font-medium text-lg'>An online code editor for interviews, troubleshooting, teaching & more…</h2>
-                        </span>
-                        <span className='flex gap-4 items-center'>
-                            <Link href={'/Room/join'}>
-                                <button className='primary-btn'>Start sharing code</button>
-                            </Link>
-                            <Link href={'/Auth/create-account'}>
-                                <button className='secondary-btn'>Try premium</button>
-                            </Link>
-                        </span>
-                    </div>
-                    <div className='w-[50%]'>
-                        <img src="/img1.jpeg" alt="" className='object-cover w-full h-full rounded-md' />
-                    </div>
+            <Nav />
+            <section className='px-2 mb-20 sm:px-10'>
+                <section className='flex justify-between items-center mb'>
+                    <Hero />
                     <Cookieconsent />
                 </section>
 
-                <section className=''>
 
+                <section className=''>
+                    <h2 className='text-2xl heading-2 mb-10 text-white'>Features</h2>
                 </section>
 
+                <section>
+                    <Features />
+                </section>
+
+                <section>
+                    <h2 className="text-3xl text-center font-semibold sm:text-4xl">Pricing</h2>
+                    <Pricing />
+                </section>
+
+                <section>
+                    <Stats />
+                </section>
+
+                {/* <section>
+                    <Testimonial />
+                </section> */}
+
             </section>
+
             <Footer />
         </>
     )

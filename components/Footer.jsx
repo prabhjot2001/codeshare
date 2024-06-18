@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 
 const Footer = () => {
@@ -20,7 +21,7 @@ const Footer = () => {
             <p className="font-inter my-4 max-w-[350px] text-base font-light text-gray-100">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut al</p>
             {/* NEWSLETTER & EMAIL */}
             <div className="flex flex-col">
-              <form action="" className="mb-10 mt-5 max-w-[421px]">
+              <form action="" className="mb-10 mt-5 max-w-[421px] -z-10">
                 <div className="relative">
                   <label htmlFor="email" className="font-inter font-medium text-gray-100">SUBSCRIBE TO NEWSLETTER</label>
                   <input type="email" className="font-inter relative mt-4 w-full rounded-md border border-black bg-[#232323] px-6 py-4 text-base text-gray-100" placeholder="Enter your email" name="email" />
@@ -31,7 +32,7 @@ const Footer = () => {
               </form>
               <div>
                 <h3 htmlFor="email" className="font-inter mb-4 mt-8 font-medium text-gray-100">EMAIL US</h3>
-                <p className="font-inter text-base text-gray-100">support@flowspark.co</p>
+                <p className="font-inter text-base text-gray-100">support@lazycoder001@gmail.com</p>
               </div>
             </div>
           </div>
@@ -72,16 +73,16 @@ const Footer = () => {
           {/* SOCIAL MEDIA ICONS */}
           <div className="mb-8 mt-6 flex flex-row lg:mb-0 lg:mt-0">
             <a href="" className="mr-4 transition hover:text-gray-400">
-              svg
+              <Facebook />
             </a>
             <a href="" className="mx-4 transition hover:text-gray-400">
-              svg
+              <Instagram />
             </a>
             <a href="" className="mx-4 transition hover:text-gray-400">
-              svg
+              <Twitter />
             </a>
             <a href="" className="mx-4 transition hover:text-gray-400">
-              svg
+              <Linkedin />
             </a>
           </div>
           <p className="font-inter text-sm text-gray-500 lg:mt-0">© Copyright 2021. All rights reserved.

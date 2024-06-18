@@ -1,16 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "~codemirror/lib/codemirror.css";
+@import "~codemirror/theme/material.css";
+
+body {
+  /* @apply bg-gradient-to-r from-rose-50 to-teal-50; */
+}
 
 * {
-  @apply text-neutral-900;
+  /* @apply text-neutral-700 font-light; */
   font-family: "Poppins", sans-serif;
-  /* background-color: rgb(255, 251, 247); */
 }
 .primary-btn {
   @apply bg-neutral-900 border text-white px-4 py-2 rounded-md hover:cursor-pointer hover:bg-white hover:border hover:text-neutral-900 transform ease-in-out duration-300;
 }
 .secondary-btn {
   @apply bg-[#FFD217] border text-neutral-900 px-4 py-2 rounded-md hover:cursor-pointer hover:bg-white hover:border transform ease-in-out duration-300;
+}
+
+.gradient-1 {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(248, 255, 254, 1) 14%,
+    rgba(241, 255, 254, 1) 22%,
+    rgba(239, 251, 255, 1) 32%,
+    rgba(252, 241, 255, 1) 47%,
+    rgba(246, 233, 255, 1) 72%,
+    rgba(253, 254, 255, 1) 89%,
+    rgba(251, 254, 255, 1) 93%,
+    rgba(252, 252, 252, 1) 100%
+  );
+}
+.heading-2 {
+  @apply font-medium text-5xl;
+}
+.heading-3 {
+  @apply font-medium text-3xl;
+}
+
+.editor-border {
+  border: 2px solid rgb(28, 28, 28);
+  /* border-radius: 8px;  */
+  @apply rounded-md;
+  padding: 8px;
 }
