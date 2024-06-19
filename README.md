@@ -18,8 +18,7 @@ This is a code-sharing application that enables users to write, run, and share c
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/code-sharing-app.git
-    cd codeShare
+    git clone https://github.com/prabhjot2001/codeshare.git
     ```
 
 2. **Install Dependencies**:
