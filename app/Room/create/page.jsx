@@ -20,9 +20,7 @@ const Page = () => {
             toast.error('link and username is required')
             return
         }
-        router.push(`/editor/${uid}`, {
-            userName
-        });
+        router.push(`/editor/${uid}/?uid=${uid}&username=${userName}`);
         toast.success("Room created");
     }
 

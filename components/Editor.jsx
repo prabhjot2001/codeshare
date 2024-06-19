@@ -27,11 +27,12 @@ import 'codemirror/theme/dracula.css';
 import 'codemirror/theme/icecoder.css';
 import 'codemirror/theme/isotope.css';
 import 'codemirror/theme/liquibyte.css';
+import { ACTIONS } from '@/actions';
 
-const Editor = () => {
+const Editor = ({ socketRef, uid, onCodeChange }) => {
     const editorRef = useRef(null);
-    const [language, setLanguage] = useState('javascript');
-    const [theme, setTheme] = useState('eclipse');
+    const [language, setLanguage] = useState('text/x-c++src');
+    const [theme, setTheme] = useState('material-ocean');
     const [fontSize, setFontSize] = useState(14);
     const [output, setOutput] = useState('');
     const editorInstance = useRef(null);
@@ -52,12 +53,46 @@ const Editor = () => {
         editorInstance.current.getWrapperElement().style.fontSize = `${fontSize}px`;
         editorInstance.current.getWrapperElement().classList.add('editor-border');
 
+        editorInstance.current.on('change', (instance, changes) => {
+            // console.log(changes);
+            const { origin } = changes
+            const code = instance.getValue();
+            //changing the code and then passign it to the parent component to keep the newly joined user in sync
+            onCodeChange(code)
+            if (origin !== 'setValue') {
+                socketRef.current.emit(ACTIONS.CODE_CHANGE, {
+                    roomId: uid,
+                    code
+                })
+            }
+        });
+
         return () => {
             if (editorInstance.current) {
                 editorInstance.current.toTextArea();
             }
         };
     }, []);
+
+
+
+    useEffect(() => {
+        if (socketRef.current) {
+            socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code }) => {
+                if (code !== null) {
+                    editorInstance.current.setValue(code)
+                }
+            })
+        }
+
+        return () => {
+            if (socketRef.current) {
+                socketRef.current.off(ACTIONS.CODE_CHANGE);
+            }
+        }
+    }, [socketRef.current])
+
+
 
     useEffect(() => {
         if (editorInstance.current) {
@@ -98,10 +133,10 @@ const Editor = () => {
                     onChange={(e) => setLanguage(e.target.value)}
                     className="px-2 bg-gray-100 rounded-md hover:cursor-pointer"
                 >
+                    <option value="text/x-c++src">C++</option>
                     <option value="javascript">JavaScript</option>
                     <option value="python">Python</option>
                     <option value="text/x-java">Java</option>
-                    <option value="text/x-c++src">C++</option>
                 </select>
 
                 <select
@@ -109,10 +144,10 @@ const Editor = () => {
                     onChange={(e) => setTheme(e.target.value)}
                     className="px-2 bg-gray-100 rounded-md hover:cursor-pointer"
                 >
-                    <option value="eclipse">Eclipse</option>
+                    <option value="material-ocean">Material Ocean</option>
                     <option value="material-darker">Material Darker</option>
                     <option value="material-palenight">Material Palenight</option>
-                    <option value="material-ocean">Material Ocean</option>
+                    <option value="eclipse">Eclipse</option>
                     <option value="dracula">Dracula</option>
                     <option value="midnight">Midnight</option>
                     <option value="monokai">Monokai</option>

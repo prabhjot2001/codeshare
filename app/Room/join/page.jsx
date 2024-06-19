@@ -21,9 +21,7 @@ const Page = () => {
         }
 
         console.log(InviteLink, Username)
-        router.push(`/editor/${InviteLink}`, {
-            Username
-        })
+        router.push(`/editor/${InviteLink}/?uid=${InviteLink}&username=${Username}`);
     }
 
     return (
