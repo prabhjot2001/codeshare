@@ -4,6 +4,15 @@
 
 This is a code-sharing application that enables users to write, run, and share code snippets in various programming languages. It provides a collaborative environment where multiple users can join a room, share code, and see the output in real-time.
 
+## Preview
+
+![Alt text](https://github.com/prabhjot2001/codeshare/blob/main/preview/preview%20(5).png)
+![Alt text](https://github.com/prabhjot2001/codeshare/blob/main/preview/preview%20(4).png)
+![Alt text](https://github.com/prabhjot2001/codeshare/blob/main/preview/preview%20(2).png)
+![Alt text](https://github.com/prabhjot2001/codeshare/blob/main/preview/preview%20(3).png)
+![Alt text](https://github.com/prabhjot2001/codeshare/blob/main/preview/preview%20(6).png)
+![Alt text](https://github.com/prabhjot2001/codeshare/blob/main/preview/preview%20(7).png)
+
 ## Features
 
 - **Multi-language Support**: Write and execute code in JavaScript, Python, Java, and C++.
