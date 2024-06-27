@@ -1,5 +1,5 @@
 # CodeShare 
-**Please give this repo a star if you find it helpful. It only takes a few seconds! 😇**
+**📌 Please give this repo a star if you find it helpful. It only takes a few seconds! 😇**
 ## Overview
 
 This is a code-sharing application that enables users to write, run, and share code snippets in various programming languages. It provides a collaborative environment where multiple users can join a room, share code, and see the output in real-time.
